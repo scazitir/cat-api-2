@@ -38,4 +38,16 @@ public class CatRestServer {
     public Cat create(@RequestBody @Valid Cat cat){
         return catCommand.create(cat);
     }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public Cat update(@RequestBody @Valid Cat cat){
+        return catCommand.update(cat);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void delete(@PathVariable Long id){
+        catCommand.delete(id);
+    }
 }
